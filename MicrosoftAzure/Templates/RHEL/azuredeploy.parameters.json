@@ -3,13 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "value": "GEN-UNIQUE-8"
+            "value": "rheladmin"
         },
         "adminPassword": {
-            "value": "GEN-PASSWORD"
+            "value": "RHEL-user_2018.4"
         },
         "vmName": {
-            "value": "GEN-UNIQUE-10"
+            "value": "RHEL-VOID-1"
+        },
+        "dnsLabelPrefix": {
+            "value": "rhel-void-1"
         }
     }
 }

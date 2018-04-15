@@ -19,12 +19,17 @@
             "metadata": {
                 "description": "Name for the Virtual Machine."
             }
+        },
+        "dnsLabelPrefix": {
+            "type": "string",
+            "metadata": {
+                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
         }
     },
     "variables": {
         "computeResouresApiVersion": "2016-04-30-preview",
         "dataDisk1Name": "[concat(uniquestring(parameters('vmName')), 'datadisk1')]",
-        "dataDisk2Name": "[concat(uniquestring(parameters('vmName')), 'datadisk2')]",
         "imagePublisher": "RedHat",
         "imageOffer": "RHEL",
         "imageSku": "7.2",
@@ -46,7 +51,10 @@
             "name": "[variables('publicIPAddressName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+                }
             }
         },
         {
@@ -120,18 +128,11 @@
                         "version": "latest"
                     },
                     "dataDisks": [{
-                            "name": "[variables('dataDisk1Name')]",
-                            "diskSizeGB": "100",
-                            "lun": 0,
-                            "createOption": "Empty"
-                        },
-                        {
-                            "name": "[variables('dataDisk2Name')]",
-                            "diskSizeGB": "100",
-                            "lun": 1,
-                            "createOption": "Empty"
-                        }
-                    ]
+                        "name": "[variables('dataDisk1Name')]",
+                        "diskSizeGB": 100,
+                        "lun": 0,
+                        "createOption": "Empty"
+                    }]
                 },
                 "networkProfile": {
                     "networkInterfaces": [{
