@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  become: true
+  roles:
+    - { role: dnsmasq-osx, tags: dnsmasq }
+    - { role: os, tags: os }
+    - { role: docker, tags: docker }

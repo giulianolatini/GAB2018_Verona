@@ -1,0 +1,3 @@
+{% for item in dnsmasq_domains %}
+address=/{{ item }}/{{ ansible_default_ipv4.address }}
+{% endfor %}

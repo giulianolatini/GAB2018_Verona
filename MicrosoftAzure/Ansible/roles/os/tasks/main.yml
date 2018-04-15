@@ -1,0 +1,35 @@
+---
+
+- name: Update APT cache
+  apt:
+    cache_valid_time: 3600
+    update_cache: yes
+
+- name: Install Git
+  apt:
+    name: git
+    state: present
+  register: gitpkg
+  until: gitpkg | success
+  retries: 5
+  delay: 10
+
+- name: Install Mail client
+  apt:
+    name: mailutils
+    state: present
+
+- name: Install python-boto
+  apt:
+    name: python-boto
+    state: present
+    
+- name: Install Supervisor
+  apt:
+    name: supervisor
+    state: present
+
+- name: Enable service Supervisor
+  service:
+    name: supervisor
+    enabled: yes

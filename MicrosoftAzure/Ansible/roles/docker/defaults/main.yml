@@ -1,0 +1,5 @@
+---
+  docker_compose_home: "/var/docker"
+  docker_compose_version: "1.17.0"
+  docker_home: "/var/lib/docker"
+  site_root: "/var/www"

@@ -1,0 +1,3 @@
+---
+ansible_ssh_host: 'instance.domain'
+ansible_ssh_port: '22'

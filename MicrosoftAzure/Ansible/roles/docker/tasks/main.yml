@@ -1,0 +1,126 @@
+---
+  - name: "Install Docker's prerequisites"
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+
+  - name: Add Docker Repository Key
+    apt_key:
+      keyserver: hkp://ha.pool.sks-keyservers.net:80
+      id: 58118E89F3A912897C070ADBF76221572C52609D
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: 'deb https://apt.dockerproject.org/repo debian-jessie main'
+      filename: 'docker'
+      state: present
+
+  - name: Install Docker Engine
+    apt:
+      name: docker-engine
+      state: present
+
+  - name: Add user to docker group
+    user:
+      name: "{{ ansible_ssh_user }}"
+      state: present
+      groups: docker,sudo
+
+  - name: Install Docker Compose
+    get_url:
+      url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+      dest: /usr/local/bin/docker-compose
+      owner: root
+      group: adm
+      mode: "u=rw,g=rx,o=rx"
+
+  - name: Create Docker Overwrite Configuration Directory
+    file:
+      path: /etc/systemd/system
+      state: directory
+      owner: root
+      group: adm
+      mode: "u=rw,g=r,o=r"
+
+  - name: Create Docker Overwrite Configuration Directory
+    file:
+      path: /etc/systemd/system/docker.service.d
+      state: directory
+      mode: "u=rw,g=r,o=r"
+
+  - name: Config Docker Engine
+    template:
+      src: dockerd.conf
+      dest: /etc/systemd/system/docker.service.d/dockerd.conf
+      owner: root
+      group: adm
+      mode: "u=rw,g=r,o=r"
+    notify: restart dockerd
+
+  - name: Create docker data directory
+    file:
+      state: directory
+      path: "{{ docker_compose_home }}"
+      owner: "{{ ansible_ssh_user }}"
+      group: "{{ ansible_ssh_user }}"
+      mode: "u=rwx,g=rx,o=rx"
+
+  - name: Sync docker data directory
+    become: no
+    synchronize:
+      src: "../../../../docker/"
+      dest: "{{ docker_compose_home }}"
+      owner: no
+      group: no
+      perms: no
+      rsync_opts:
+        - "--no-motd"
+        - "--exclude=.DS_Store"
+
+
+  - name: Deploy docker-compose enviroment file
+    template:
+      src: enviroment
+      dest: "{{ docker_compose_home }}/.env"
+      owner: "{{ ansible_ssh_user }}"
+      group: "{{ ansible_ssh_user }}"
+      mode: "u=rwx,g=rx,o=rx"
+
+  - name: Pull Docker Project
+    shell: docker-compose pull
+    args:
+      chdir: "{{ docker_compose_home }}"
+
+  - name: Build Docker Project
+    shell: docker-compose build
+    args:
+      chdir: "{{ docker_compose_home }}"
+
+  - name: Config autostart docker-compose with supervisor
+    template:
+      src: docker-compose.conf
+      dest: /etc/supervisor/conf.d/docker-compose.conf
+      owner: root
+      group: adm
+      mode: "u=rw,g=r,o=r"
+    register: docker_compose_config
+
+  - name: Start supervisor
+    service:
+      name: supervisor
+      state: started
+
+  - name: (Re)start docker-compose
+    supervisorctl:
+      name: docker-compose
+      state: restarted
+    when: docker_compose_config.changed
+
+  - name: Start docker-compose
+    supervisorctl:
+      name: docker-compose
+      state: started

@@ -1,0 +1,10 @@
+---
+- name: start dnsmasq
+  become: yes
+  command: launchctl start homebrew.mxcl.dnsmasq
+  connection: local
+
+- name: restart dnsmasq
+  become: yes
+  command: launchctl stop homebrew.mxcl.dnsmasq
+  connection: local
