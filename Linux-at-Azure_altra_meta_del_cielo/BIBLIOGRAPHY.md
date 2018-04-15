@@ -1,5 +1,11 @@
 # Bibliography
 
+## Prerequisiti
+
+* [Installazione .NET SDK](https://www.microsoft.com/net/learn/get-started/macos)
+
+## Webapps
+
 * [Creare un'app Web .NET Core nel Servizio app in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/quickstart-dotnetcore)
 
 * [Repo Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates)
