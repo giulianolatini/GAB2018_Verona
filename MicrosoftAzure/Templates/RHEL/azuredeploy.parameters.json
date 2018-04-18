@@ -9,10 +9,10 @@
             "value": "RHEL-user_2018.4"
         },
         "vmName": {
-            "value": "RHEL-VOID-1"
+            "value": "RHEL-DOCKER-1"
         },
-        "dnsLabelPrefix": {
-            "value": "rhel-void-1"
+        "sshKeyData": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5T9sPK0/GciKwkQKSsT8EKYyETR8fmFNAWvYNJovsirjOuNWAYim9M0HSmFTFJoAmGB6w6YXSIoAyTtCX1egaM8KcpcCOt6eTQXzOWzpkSsukfPIC8zsXrNFvKAzxtCIahqSJwe4AVr4hYe0zMnxBjnAaQ+D4+hjsgbR/4IS8nePtyP7W454deHdrq8LdnQr2b3yt720Ab3LzWpygZrDfQyrjH1UHdl+Z4MnW7QevtiylNweuM85tDpRhu7IZlj99HsGjreJtwxgefy29AddB6jARwEpNiGREx2WDIlTuRGoz1ALkrk3ALZOsrqJSXMZ7KKQuRCR+IEDeZEp751ZL latini.giuliano@gmail.com"
         }
     }
 }
