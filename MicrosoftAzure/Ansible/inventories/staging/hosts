@@ -1,2 +1,2 @@
 [AZURE]
-rhel-void-1.westeurope.cloudapp.azure.com
+rhel-docker-1.westeurope.cloudapp.azure.com ansible_become_user=rheladmin ansible_become_pass=RHEL-user_2018.4
