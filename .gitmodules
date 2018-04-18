@@ -1,0 +1,3 @@
+[submodule "MicrosoftAzure/Repo/dotnetWebapp"]
+	path = MicrosoftAzure/Repo/dotnetWebapp
+	url = git@github.com:giulianolatini/dotnetWebapp.git
