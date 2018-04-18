@@ -15,3 +15,7 @@
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](https://docs.microsoft.com/it-it/azure/azure-resource-manager/resource-group-template-deploy)
 
 * [Creare un'App Web ASP.NET Core in un contenitore Docker](https://docs.microsoft.com/it-it/azure/app-service/scripts/app-service-cli-linux-docker-aspnetcore?toc=%2fcli%2fazure%2ftoc.json)
+
+## AKS/ACS
+
+* [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
