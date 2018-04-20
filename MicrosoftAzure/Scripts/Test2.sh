@@ -1,15 +1,13 @@
 # Microsoft Azure Login
 az login
 
-# Create Distribution user
-az webapp deployment user set \
-    --user-name sandboxusr01 \
-    --password SNBdxs201
+# Enter in the workplace
+cd GAB2018_Verona/MicrosoftAzure
 
 # Create Resource Group
 az group create \
     --name SandboxGroup02 \
-    --location "North Europe"
+    --location "West Europe"
 
 # Create AppPlan into Resource Group
 az appservice plan create \
@@ -28,24 +26,29 @@ az appservice list-locations \
 az sql server create \
     --name DB-BOX \
     --resource-group SandboxGroup02 \
-    --location "North Europe" \
+    --location "West Europe" \
     --admin-user sandbox \
     --admin-password SNBdxs210
 
 az sql server firewall-rule create \
     --resource-group SandboxGroup02 \
-    --server db-sbox \
+    --server db-box \
     --name AllowAccessFromAzure \
     --start-ip-address 0.0.0.0 \
     --end-ip-address 0.0.0.0
 
+az sql server firewall-rule show \
+    --resource-group SandboxGroup02 \
+    --server db-box \
+    --name AllowAccessFromAzure
+
 az sql db create \
     --resource-group SandboxGroup02 \
-    --server db-sbox \
+    --server db-box \
     --name coreDB \
     --service-objective S0
 
-Server=tcp:db-sbox.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=sandbox;Password=SNBdxs210;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:db-box.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=sandbox;Password=SNBdxs210;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
 # Create Distribution user
 az webapp deployment user set \
@@ -65,7 +68,7 @@ az webapp create \
 az webapp config connection-string set \
     --resource-group SandboxGroup02 \
     --name Webtest01 \
-    --settings MyDbConnection='Server=tcp:db-sbox.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=sandbox;Password=SNBdxs210;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;' \
+    --settings MyDbConnection='Server=tcp:db-box.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=sandbox;Password=SNBdxs210;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;' \
     --connection-string-type SQLServer
 
 az webapp config appsettings set \
@@ -92,6 +95,7 @@ git remote add \
     https://sandboxusr01@webtest01.scm.azurewebsites.net/Webtest01.git
 
 # Deploy Webapp
+cd Repo/dotnetcore-sqldb-tutorial   
 git push azure master
 
 # Deploy storage account
