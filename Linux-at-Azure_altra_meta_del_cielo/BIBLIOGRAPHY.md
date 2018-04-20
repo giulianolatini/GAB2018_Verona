@@ -16,6 +16,8 @@
 
 * [Creare un'App Web ASP.NET Core in un contenitore Docker](https://docs.microsoft.com/it-it/azure/app-service/scripts/app-service-cli-linux-docker-aspnetcore?toc=%2fcli%2fazure%2ftoc.json)
 
+* [Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/tutorial-dotnetcore-sqldb-app)
+
 ## AKS/ACS
 
 * [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
