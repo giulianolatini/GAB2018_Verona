@@ -1,3 +1,6 @@
 [submodule "MicrosoftAzure/Repo/dotnetWebapp"]
 	path = MicrosoftAzure/Repo/dotnetWebapp
 	url = git@github.com:giulianolatini/dotnetWebapp.git
+[submodule "MicrosoftAzure/Repo/dotnetcore-sqldb-tutorial"]
+	path = MicrosoftAzure/Repo/dotnetcore-sqldb-tutorial
+	url = https://github.com/azure-samples/dotnetcore-sqldb-tutorial
