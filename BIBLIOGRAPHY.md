@@ -4,9 +4,17 @@
 
 * [Installazione dotNET SDK](https://www.microsoft.com/net/learn/get-started/macos)
 
+* [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+* [jq is a lightweight and flexible command-line JSON processor](https://stedolan.github.io/jq/)
+
+* [jq|>play A playground for jq](https://jqplay.org/)
+
 ## Webapps
 
 * [Creare un'app Web dotNET Core nel Servizio app in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/quickstart-dotnetcore)
+
+* [Create a web app and deploy code from a local Git repository](https://docs.microsoft.com/en-us/azure/app-service/scripts/app-service-cli-deploy-local-git)
 
 * [Repo Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates)
 
@@ -21,3 +29,7 @@
 ## AKS/ACS
 
 * [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
+
+## SWARM/ACS
+
+* [Deploy Docker Swarm cluster](https://docs.microsoft.com/en-us/azure/container-service/dcos-swarm/container-service-swarm-walkthrough)
