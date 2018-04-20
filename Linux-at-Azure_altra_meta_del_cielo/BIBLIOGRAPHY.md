@@ -2,11 +2,11 @@
 
 ## Prerequisiti
 
-* [Installazione .NET SDK](https://www.microsoft.com/net/learn/get-started/macos)
+* [Installazione dotNET SDK](https://www.microsoft.com/net/learn/get-started/macos)
 
 ## Webapps
 
-* [Creare un'app Web .NET Core nel Servizio app in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/quickstart-dotnetcore)
+* [Creare un'app Web dotNET Core nel Servizio app in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/quickstart-dotnetcore)
 
 * [Repo Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates)
 
@@ -16,7 +16,7 @@
 
 * [Creare un'App Web ASP.NET Core in un contenitore Docker](https://docs.microsoft.com/it-it/azure/app-service/scripts/app-service-cli-linux-docker-aspnetcore?toc=%2fcli%2fazure%2ftoc.json)
 
-* [Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/tutorial-dotnetcore-sqldb-app)
+* [Creare un'app Web di database SQL e dotNET Core in Servizio app di Azure in Linux](https://docs.microsoft.com/it-it/azure/app-service/containers/tutorial-dotnetcore-sqldb-app)
 
 ## AKS/ACS
 
