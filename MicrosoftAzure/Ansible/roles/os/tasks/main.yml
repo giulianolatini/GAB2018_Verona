@@ -7,17 +7,5 @@
     update_cache: yes
     update_only: yes
     
-- name: Install Prerequisite Package
-  yum:
-    name: "{{ item }}"
-    state: installed
-  with_items:
-    - yum-utils
-    - device-mapper-persistent-data
-    - lvm2
-  register: result
-  until: result is success
-  retries: 5
-  delay: 10
 
     
