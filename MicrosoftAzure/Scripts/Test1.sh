@@ -19,8 +19,8 @@ az group deployment create \
 az group deployment show \
     --name RHEL-VOID-1 \
     --resource-group SandboxGroup 
-ssh-copy-id rheladmin@rhel-void-1.westeurope.cloudapp.azure.com
-ssh rheladmin@rhel-void-1.westeurope.cloudapp.azure.com
+ssh-copy-id rheladmin@rhel-docker-1.westeurope.cloudapp.azure.com
+ssh rheladmin@rhel-docker-1.westeurope.cloudapp.azure.com
 # Check which packages maybe updates
 ssh rheladmin@rhel-docker-1.westeurope.cloudapp.azure.com -t "sudo yum check-update; sudo yum -y update"
 
