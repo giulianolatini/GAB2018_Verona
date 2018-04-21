@@ -1,5 +1,9 @@
 # Microsoft Azure Login
 az login
+
+# Enter in the workplace
+cd GAB2018_Verona/MicrosoftAzure
+
 # Create Resource Group
 az group create --name SandboxGroup01 --location "West Europe"
 # Deploy storage account
